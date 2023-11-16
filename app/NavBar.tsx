@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import css from "./NavBar.module.css";
-import classNames from "classnames";
+import classnames from "classnames";
 
 import { AiFillBug } from "react-icons/ai";
 import { usePathname } from "next/navigation";
@@ -21,14 +21,14 @@ const NavBar = () => {
 		},
 	];
 	return (
-		<nav className={classNames(css.navBar, css.navItems)}>
+		<nav className={classnames(css.navBar, css.navItems)}>
 			<Link href="/">
 				<AiFillBug />
 			</Link>
 			<ul className={css.navItems}>
 				{links.map((link) => (
 					<li
-						className={classNames(
+						className={classnames(
 							css.link,
 							pathname === link.href ? css.active : ""
 						)}
