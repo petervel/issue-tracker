@@ -1,0 +1,22 @@
+.navBar {
+	border-bottom: 1px solid lightgray;
+	margin-bottom: 24px;
+	height: 60px;
+	padding-left: 1vw;
+	padding-right: 10px;
+	align-items: center;
+}
+
+.navItems {
+	display: flex;
+	gap: 2vw;
+}
+
+.link {
+	color: #777;
+	transition: color 300ms ease;
+}
+
+.link:hover {
+	color: black;
+}
