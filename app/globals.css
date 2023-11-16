@@ -1,9 +1,9 @@
 @tailwind base;
-@tailwind components;
-@tailwind utilities;
 
 :root {
 	--foreground-rgb: 0, 0, 0;
+	--padding-M: 20px;
+	--spacing-M: 2vw;
 }
 
 @media (prefers-color-scheme: dark) {

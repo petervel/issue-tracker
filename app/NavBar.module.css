@@ -9,7 +9,7 @@
 
 .navItems {
 	display: flex;
-	gap: 2vw;
+	gap: var(--spacing-M);
 }
 
 .link {
