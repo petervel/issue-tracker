@@ -17,6 +17,7 @@
 	transition: color 300ms ease;
 }
 
-.link:hover {
+.link:hover,
+.link.active {
 	color: black;
 }
