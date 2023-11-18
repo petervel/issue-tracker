@@ -1,0 +1,17 @@
+.newIssueButton {
+	margin-bottom: var(--spacing-M);
+}
+
+.mobileOnly {
+	display: none;
+}
+
+@media screen and (max-width: 480px) {
+	.noMobile {
+		display: none;
+	}
+
+	.mobileOnly {
+		display: block;
+	}
+}
