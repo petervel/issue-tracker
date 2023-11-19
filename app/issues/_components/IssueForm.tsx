@@ -12,11 +12,8 @@ import { useState } from "react";
 import { Controller, useForm } from "react-hook-form";
 import { z } from "zod";
 import css from "./IssueForm.module.css";
-import dynamic from "next/dynamic";
-
-const SimpleMDE = dynamic(() => import("react-simplemde-editor"), {
-	ssr: false,
-});
+import SimpleMDE from "react-simplemde-editor";
+import classNames from "classnames";
 
 type IssueFormData = z.infer<typeof issueSchema>;
 
@@ -50,14 +47,14 @@ const IssueForm = ({ issue }: { issue?: Issue }) => {
 	});
 
 	return (
-		<div className={css.container}>
+		<div className={classNames(css.container, "max-w-xl")}>
 			{error && (
 				<Callout.Root color="red">
 					<Callout.Text>{error}</Callout.Text>
 				</Callout.Root>
 			)}
 			<form onSubmit={submitForm}>
-				<TextField.Root>
+				<TextField.Root mb="3">
 					<TextField.Input
 						placeholder="Title"
 						defaultValue={issue?.title}
