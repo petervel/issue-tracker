@@ -1,4 +1,6 @@
+import "@radix-ui/themes/styles.css";
 import "./globals.css";
+
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { Container, Theme } from "@radix-ui/themes";
@@ -22,7 +24,7 @@ export default function RootLayout({
 	children: React.ReactNode;
 }) {
 	return (
-		<html lang="en">
+		<html lang="en" suppressHydrationWarning>
 			<body className={inter.variable}>
 				<Theme appearance="light" accentColor="violet">
 					<NavBar />

@@ -2,9 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-@import "@radix-ui/themes/styles.css";
-@import "./theme-config.css";
-
 :root {
 	--background-rgb: 255, 255, 255;
 	--foreground-rgb: 0, 0, 0;
@@ -21,4 +18,8 @@
 
 body {
 	color: rgb(var(--foreground-rgb));
+}
+
+.radix-themes {
+	--default-font-family: var(--font-inter) !important;
 }
