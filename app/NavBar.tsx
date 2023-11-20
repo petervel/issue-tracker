@@ -6,10 +6,13 @@ import classnames from "classnames";
 
 import { AiFillBug } from "react-icons/ai";
 import { usePathname } from "next/navigation";
+import { useSession } from "next-auth/react";
+import { Box } from "@radix-ui/themes";
 
 const NavBar = () => {
 	const pathname = usePathname();
-	console.log(pathname);
+	const { status, data: session } = useSession();
+
 	const links = [
 		{
 			label: "Dashboard",
@@ -38,6 +41,14 @@ const NavBar = () => {
 					</li>
 				))}
 			</ul>
+			<Box>
+				{status === "authenticated" && (
+					<Link href="/api/auth/signout">Log out</Link>
+				)}
+				{status === "unauthenticated" && (
+					<Link href="/api/auth/signin">Login</Link>
+				)}
+			</Box>
 		</nav>
 	);
 };
