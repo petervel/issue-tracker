@@ -8,6 +8,7 @@ import NavBar from "./NavBar";
 
 import css from "./MainLayout.module.css";
 import AuthProvider from "./auth/Provider";
+import QueryClientProvider from "./QueryClientProvider";
 
 const inter = Inter({
 	subsets: ["latin"],
@@ -27,14 +28,16 @@ export default function RootLayout({
 	return (
 		<html lang="en" suppressHydrationWarning>
 			<body className={inter.variable}>
-				<AuthProvider>
-					<Theme appearance="light" accentColor="violet">
-						<NavBar />
-						<main className={css.main}>
-							<Container>{children}</Container>
-						</main>
-					</Theme>
-				</AuthProvider>
+				<QueryClientProvider>
+					<AuthProvider>
+						<Theme appearance="light" accentColor="violet">
+							<NavBar />
+							<main className={css.main}>
+								<Container>{children}</Container>
+							</main>
+						</Theme>
+					</AuthProvider>
+				</QueryClientProvider>
 			</body>
 		</html>
 	);
