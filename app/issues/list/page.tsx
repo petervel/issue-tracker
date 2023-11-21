@@ -12,14 +12,6 @@ type IssuesPageProps = {
 };
 
 const IssuesPage = async ({ searchParams }: IssuesPageProps) => {
-	const statuses = Object.values(Status);
-	const status = statuses.includes(searchParams.status)
-		? searchParams.status
-		: undefined;
-	const issues = await prisma.issue.findMany({
-		where: { status: status },
-	});
-
 	const columns: {
 		label: string;
 		className: string;
@@ -29,6 +21,21 @@ const IssuesPage = async ({ searchParams }: IssuesPageProps) => {
 		{ label: "Status", className: css.noMobile, value: "status" },
 		{ label: "Created", className: css.noMobile, value: "createdAt" },
 	];
+
+	const orderBy = columns
+		.map((column) => column.value)
+		.includes(searchParams.orderBy)
+		? { [searchParams.orderBy]: "asc" }
+		: undefined;
+
+	const statuses = Object.values(Status);
+	const status = statuses.includes(searchParams.status)
+		? searchParams.status
+		: undefined;
+	const issues = await prisma.issue.findMany({
+		where: { status: status },
+		orderBy,
+	});
 
 	return (
 		<div>
