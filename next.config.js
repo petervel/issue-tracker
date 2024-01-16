@@ -8,6 +8,14 @@ const nextConfig = {
 	// 		},
 	// 	];
 	// },
+  async rewrites() {
+    return [
+      {
+        source: "/pages/:path*",
+        destination: "/app/:path*"
+      }
+    ]
+  }
 };
 
 module.exports = nextConfig;
